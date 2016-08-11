@@ -1,0 +1,52 @@
+{
+  "name": "seahawks-countdown",
+  "version": "1.0.0",
+  "description": "A web app with a timer counting down to the next Seahawks game",
+  "main": "./app/index.js",
+  "dependencies": {
+    "angular": "^1.5.6",
+    "foundation-apps": "^1.2.0",
+    "lodash": "^4.13.1",
+    "moment": "^2.13.0",
+    "moment-timezone": "^0.5.4"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.3.6",
+    "babel-core": "^6.9.1",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "css-loader": "^0.23.1",
+    "eslint": "^2.11.1",
+    "json-loader": "^0.5.4",
+    "node-sass": "^3.7.0",
+    "node-static": "^0.7.7",
+    "postcss-loader": "^0.9.1",
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.13.1",
+    "tap-difflet": "^0.4.0",
+    "tape": "^4.5.1",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "scripts": {
+    "test": "eslint -c .eslintrc app tests webpack.config.js && tape tests/*.test.js | tap-difflet && npm run build",
+    "start": "static -a 0.0.0.0",
+    "build": "webpack --progress --colors",
+    "build-watch": "webpack-dev-server --host 0.0.0.0 --progress --colors"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KatherineThompson/seahawks-countdown.git"
+  },
+  "keywords": [
+    "seahawks",
+    "countdown",
+    "timer"
+  ],
+  "author": "Katherine Thompson <ket29@cornell.edu>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KatherineThompson/seahawks-countdown/issues"
+  },
+  "homepage": "https://github.com/KatherineThompson/seahawks-countdown#readme"
+}

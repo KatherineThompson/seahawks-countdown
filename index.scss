@@ -1,0 +1,113 @@
+@import "foundation";
+@import url(https://fonts.googleapis.com/css?family=Kanit:400,500,600,700,800);
+
+$breakpoints: map-merge($breakpoints, (large: 1025px));
+
+$hawksGreen: #69bd28;
+$hawksBlue: #00295b;
+$gray: #999;
+
+body {
+    background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 10%, rgba(255,255,255,0.5)) 100%,
+        url("/img/space-needle-contrast.jpg");
+    background-repeat: no-repeat, no-repeat;
+    background-size: auto auto, cover;
+    background-position: center, center;
+}
+
+.grid-frame {
+    overflow: auto;
+}
+
+h2, p, label, input {
+    color: $gray;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 600;
+
+    .game-info & {
+        font-size: 1.75em;
+        color: $hawksBlue;
+    }
+
+    .no-games & {
+        font-size: 5em;
+        color: $hawksGreen;
+    }
+}
+
+h2 {
+    color: $hawksGreen;
+}
+
+label, input {
+    font-size: 1.25em;
+}
+
+.bottom {
+    margin-bottom: 0;
+
+    &.title-bar {
+        padding-bottom: .25em;
+        padding-top: .25em;
+        background-color: $hawksBlue;
+        border: none;
+
+        & p {
+            font-weight: 400;
+        }
+        
+        & a {
+            color: $hawksGreen;
+        }
+    }
+}
+
+.countdown p {
+    color: $hawksGreen;
+    font-size: 3em;
+
+    @include breakpoint(medium only) {
+        font-size: 5em;
+    }
+
+    @include breakpoint(large) {
+        font-size: 7em;
+    }
+}
+
+.labels p {
+    font-size: 1em;
+
+    @include breakpoint(medium) {
+        font-size: 2em;
+    }
+}
+
+.preseason {
+    overflow: hidden;
+}
+
+.menu {
+    background-color: $hawksBlue;
+    color: $hawksGreen;
+    z-index: 1;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+#panel {
+    background-color: $gray;
+    
+    p, .close-button {
+        color: $hawksBlue;
+    }
+
+    a {
+        color: $hawksGreen;
+    }
+
+    div.vertical {
+        margin-top: 1em;
+    }
+}

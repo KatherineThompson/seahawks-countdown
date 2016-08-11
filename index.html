@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="description" content="A timer counting down to the next Seattle Seahawks game"/>
+        <script src="./dist/built.js"></script>
+        <title>Seahawks Game Countdown</title>
+    </head>
+    <body ng-app="seahawks-countdown" ng-controller="SeahawksCountdownCtrl">
+        <div class="grid-frame">
+            <div class="v-align small-up-1 grid-block">
+                <div>
+                    <span class="menu badge" zf-open="panel">?</span>
+                </div>
+                <div id="panel" zf-panel="" position="left">
+                    <div class="vertical grid-block">
+                        <a class="close-button float-right" zf-close="">×</a>
+                        <p>
+                            Full 2016 season <a href="http://www.seahawks.com/schedule" target="_blank">schedule</a>
+                        </p>
+                        <p>
+                            This is an app by <a href="https://github.com/KatherineThompson" target="_blank">Katherine Thompson</a>.
+                            Source code is available on <a href="https://github.com/KatherineThompson/seahawks-countdown" target="_blank">Github</a>.
+                        </p>
+                        <p>
+                            <a href="https://www.flickr.com/photos/aphid00/12263483273" target="_blank">"Seattle Space Needle lit up in Seahawks colors"</a>
+                            by <a href="https://www.flickr.com/photos/aphid00/" target="_blank">Dave Sizer</a>, used under
+                            <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank">CC BY</a> / cropped and altered from original.
+                        </p>
+                    </div>
+                </div>
+                <div class="small-12 grid-block align-spaced no-games" ng-hide="countdown">
+                    <p class="text-center">There are no currently scheduled Seahawks games.</p>
+                </div>
+                <div class="vertical small-12 grid-block" ng-if="countdown">
+                    <div class="grid-block countdown align-spaced">
+                        <div class="grid-block align-center" ng-class="settings.colSize" ng-if="countdown.days">
+                            <p>{{countdown.days}}</p>
+                        </div>
+                        <div class="grid-block shrink align-center" ng-if="countdown.days">
+                            <p>:</p>
+                        </div>
+                        <div class="grid-block align-center" ng-class="settings.colSize" ng-if="countdown.hours">
+                            <p>{{countdown.hours}}</p>
+                        </div>
+                        <div class="grid-block shrink align-center" ng-if="countdown.hours">
+                            <p>:</p>
+                        </div>
+                        <div class="grid-block align-center" ng-class="settings.colSize" ng-if="countdown.minutes">
+                            <p>{{countdown.minutes}}</p>
+                        </div>
+                        <div class="grid-block shrink align-center" ng-if="countdown.minutes">
+                            <p>:</p>
+                        </div>
+                        <div class="grid-block align-center" ng-class="settings.colSize" ng-if="countdown.seconds">
+                            <p>{{countdown.seconds}}</p>
+                        </div>
+                    </div>
+                    <div class="grid-block labels align-spaced">
+                        <div class="small-2 grid-block" ng-if="countdown.days">
+                            <div class="grid-container">
+                                <p>Days</p>
+                            </div>
+                        </div>
+                        <div class="small-2 grid-block" ng-if="countdown.hours">
+                            <div class="grid-container">
+                                <p>Hours</p>
+                            </div>
+                        </div>
+                        <div class="small-2 grid-block" ng-if="countdown.minutes">
+                            <div class="grid-container">
+                                <p>Minutes</p>
+                            </div>
+                        </div>
+                        <div class="small-2 grid-block" ng-if="countdown.seconds">
+                            <div class="grid-container">
+                                <p>Seconds</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="small-12 grid-block" ng-if="countdown">
+                    <div class="grid-container">
+                        <h2 class="text-center">until the next Seahawks game</h2>
+                    </div>
+                </div>
+                <div class="small-12 grid-block game-info" ng-if="countdown">
+                    <div class="grid-container">
+                        <p class="text-center">Seattle Seahawks vs. {{nextGame.opponent}}</p>
+                        <p class="text-center">{{nextGame.formattedDate}} PST</p>
+                        <p class="text-center">{{nextGame.location}}</p>
+                    </div>
+                </div>
+                <div class="align-bottom small-12 grid-block title-bar bottom">
+                    <div class="grid-block preseason">
+                        <input id="preseasonGames" type="checkbox" ng-model="settings.preseason">
+                        <label for="preseasonGames">Include preseason games?</label>                        
+                    </div>
+                    <div class="grid-block">
+                        <div class="grid-block small-4 small-offset-1">
+                            <label for="units">Show time until next game in:</label>
+                        </div>
+                        <div class="grid-block small-7">
+                            <input type="radio" name="units" value="days" id="daysUnits" ng-model="settings.units">
+                            <label for="daysUnits">Days</label>
+                            <input type="radio" name="units" value="hours" id="hoursUnits" ng-model="settings.units">
+                            <label for="hoursUnits">Hours</label>
+                            <input type="radio" name="units" value="minutes" id="minutesUnits" ng-model="settings.units">
+                            <label for="minutesUnits">Minutes</label>
+                            <input type="radio" name="units" value="seconds" id="secondsUnits" ng-model="settings.units">
+                            <label for="secondsUnits">Seconds</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
